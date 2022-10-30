@@ -19,6 +19,7 @@ module.exports = {
           '@interfaces': './src/interfaces',
           '@config': './src/config',
           '@screens': './src/screens',
+          '@constants': './src/constants',
         },
       },
     ],

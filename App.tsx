@@ -20,7 +20,11 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="IMDb">
-        <Stack.Screen name="IMDb" component={IMDb} />
+        <Stack.Screen
+          name="IMDb"
+          component={IMDb}
+          options={{headerShown: false}}
+        />
         <Stack.Screen name="Details" component={Details} />
       </Stack.Navigator>
     </NavigationContainer>

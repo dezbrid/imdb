@@ -6,6 +6,8 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {NavigationProps} from '@interfaces/navigation';
 import styles from './styles';
 
+import BarSearch from './components/BarSearch';
+
 function IMDb() {
   const navigation = useNavigation<NavigationProps>();
   const gotoDetail = () => {
@@ -13,6 +15,7 @@ function IMDb() {
   };
   return (
     <SafeAreaView style={styles.container}>
+      <BarSearch />
       <TouchableOpacity onPress={gotoDetail}>
         <Text>IMDb</Text>
       </TouchableOpacity>
