@@ -18,6 +18,7 @@ module.exports = {
         alias: {
           '@interfaces': './src/interfaces',
           '@config': './src/config',
+          '@screens': './src/screens',
         },
       },
     ],
