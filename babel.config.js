@@ -20,6 +20,8 @@ module.exports = {
           '@config': './src/config',
           '@screens': './src/screens',
           '@constants': './src/constants',
+          '@redux': './src/redux',
+          '@hooks': './src/hooks',
         },
       },
     ],

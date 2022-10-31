@@ -1,4 +1,5 @@
 import Reactotron, {overlay, trackGlobalErrors} from 'reactotron-react-native';
+import {reactotronRedux} from 'reactotron-redux';
 import {Tron} from '@interfaces/reactotron';
 
 declare global {
@@ -12,6 +13,8 @@ declare global {
 if (__DEV__) {
   Reactotron.configure({name: 'imdb'})
     .use(trackGlobalErrors({}))
+    .useReactNative()
+    .use(reactotronRedux())
     .use(overlay())
     .connect();
 

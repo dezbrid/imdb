@@ -7,12 +7,14 @@ const CLEAR_ICON_SIZE = 18;
 
 export default StyleSheet.create({
   container: {
+    margin: 20,
+  },
+  barSearch: {
     alignItems: 'center',
     backgroundColor: white,
     height: 45,
-    borderRadius: 100,
+    borderRadius: 20,
     flexDirection: 'row',
-    margin: 20,
     paddingRight: 15,
     paddingLeft: 10,
   },
@@ -28,9 +30,14 @@ export default StyleSheet.create({
     width: CLEAR_ICON_SIZE,
     height: CLEAR_ICON_SIZE,
   },
-  containterShadow: {
+  barSearchShadow: {
     ...GENERAL_BOX_SHADOW,
     borderWidth: 1,
     borderColor: extraLightGray,
+  },
+  textError: {
+    marginLeft: 20,
+    fontSize: 12,
+    color: 'red',
   },
 });
