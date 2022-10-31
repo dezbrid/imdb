@@ -2,7 +2,9 @@ import React, {useState, useEffect} from 'react';
 import {View, Image, TextInput, TouchableOpacity, Text} from 'react-native';
 import {Nullable} from '@interfaces/generic';
 import {alphanumericRegexWithOutSpaces} from '@constants/regex';
+import {useAppDispatch} from '@hooks/redux';
 import useDebounce from '@hooks/useDebounce';
+import {imdbTitleAsync} from '@redux/imdbSlice';
 
 import iconSerch from './assets/ic_search.png';
 import clearIcon from './assets/ic_close.png';
@@ -11,13 +13,15 @@ import styles from './styles';
 function BarSearch() {
   const [search, setSearch] = useState<string>('');
   const [hasError, setHasError] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
   let inputRef: Nullable<TextInput> = null;
   const debouncesSearch = useDebounce(search, 800);
   useEffect(() => {
     if (debouncesSearch.length >= 3 && !hasError) {
       //request
+      dispatch(imdbTitleAsync(debouncesSearch));
     }
-  }, [hasError, debouncesSearch]);
+  }, [hasError, debouncesSearch, dispatch]);
 
   const handlePressClearSearch = () => {
     inputRef!.clear();
