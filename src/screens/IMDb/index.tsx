@@ -4,14 +4,14 @@ import {FlatList, ListRenderItem, View} from 'react-native';
 import {useAppSelector} from '@hooks/redux';
 import {ImdbObject} from '@interfaces/imdb';
 import {ListKeyExtractor} from '@interfaces/generic';
-import {listimdb} from '@redux/imdbSlice';
+import {listImdb} from '@redux/imdbSlice';
 
 import styles from './styles';
 import BarSearch from './components/BarSearch';
 import ImdbCard from './components/ImdbCard';
 
 function IMDb() {
-  const imbds = useAppSelector(listimdb);
+  const imbds = useAppSelector(listImdb);
   const renderItem: ListRenderItem<ImdbObject> = ({item}) => (
     <ImdbCard {...item} />
   );
@@ -26,6 +26,7 @@ function IMDb() {
         keyExtractor={keyExtractor}
         contentContainerStyle={styles.contentContainer}
         ItemSeparatorComponent={separator}
+        refreshing={true}
       />
     </SafeAreaView>
   );

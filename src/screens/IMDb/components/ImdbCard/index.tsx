@@ -7,15 +7,15 @@ import {ImdbObject} from '@interfaces/imdb';
 import styles from './styles';
 
 function ImdbCard(imbd: ImdbObject) {
-  const {title, image} = imbd;
+  const {title, image, id} = imbd;
   const navigation = useNavigation<NavigationProps>();
-  const gotoDetail = () => {
-    navigation.navigate('Details');
+  const goToDetail = () => {
+    navigation.navigate('Details', {imbdId: id});
   };
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
-      <TouchableOpacity onPress={gotoDetail}>
+      <TouchableOpacity onPress={goToDetail}>
         <Image
           style={styles.image}
           source={{uri: image}}

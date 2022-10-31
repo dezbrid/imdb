@@ -28,7 +28,11 @@ function App() {
             component={IMDb}
             options={{headerShown: false}}
           />
-          <Stack.Screen name="Details" component={Details} />
+          <Stack.Screen
+            name="Details"
+            component={Details}
+            options={{title: ''}}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

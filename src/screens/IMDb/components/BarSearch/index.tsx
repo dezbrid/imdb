@@ -18,7 +18,6 @@ function BarSearch() {
   const debouncesSearch = useDebounce(search, 800);
   useEffect(() => {
     if (debouncesSearch.length >= 3 && !hasError) {
-      //request
       dispatch(imdbTitleAsync(debouncesSearch));
     }
   }, [hasError, debouncesSearch, dispatch]);

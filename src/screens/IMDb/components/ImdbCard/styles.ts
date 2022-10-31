@@ -1,8 +1,8 @@
 import {StyleSheet} from 'react-native';
 import {white, darkGray} from '@constants/colors';
 import {GENERAL_BOX_SHADOW} from '@constants/commonStyles';
-const HEIGHT_IMAGE = 90;
-const WIDTH_IMAGE = 55;
+const HEIGHT_IMAGE = 160;
+const WIDTH_IMAGE = 120;
 const SIZES = {
   TITLE: 17,
 };
@@ -10,11 +10,11 @@ const SIZES = {
 export default StyleSheet.create({
   container: {
     ...GENERAL_BOX_SHADOW,
-    flexDirection: 'row',
     borderRadius: 5,
     backgroundColor: white,
-    paddingVertical: 15,
-    paddingHorizontal: 20,
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    height: 250,
   },
   image: {
     height: HEIGHT_IMAGE,
