@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import {Text, View, SafeAreaView} from 'react-native';
-//import {SafeAreaView} from 'react-native-safe-area-context';
 import {useAppDispatch, useAppSelector} from '@hooks/redux';
 import {useRoute, RouteProp} from '@react-navigation/native';
 import {RootStackParamList} from '@interfaces/navigation';
