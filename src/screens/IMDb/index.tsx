@@ -37,7 +37,9 @@ function IMDb() {
           contentContainerStyle={styles.contentContainer}
           ItemSeparatorComponent={separator}
           refreshing={true}
-          ListEmptyComponent={() => <Text>Lista vacia </Text>}
+          ListEmptyComponent={() => (
+            <Text style={styles.text}>Lista vacia </Text>
+          )}
         />
       )}
     </SafeAreaView>

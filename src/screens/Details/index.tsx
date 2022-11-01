@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import {Text, View, SafeAreaView, ActivityIndicator} from 'react-native';
+import {WebView} from 'react-native-webview';
 import {useAppDispatch, useAppSelector} from '@hooks/redux';
 import {useRoute, RouteProp} from '@react-navigation/native';
 import {RootStackParamList} from '@interfaces/navigation';
@@ -41,7 +42,9 @@ function Details() {
               <Text style={styles.subString}>{detailImbd?.plotLocal}</Text>
             </Text>
           </View>
-          <View style={styles.subContainer} />
+          <View style={styles.subContainer}>
+            <WebView source={{uri: detailImbd?.trailer.linkEmbed!}} />
+          </View>
         </>
       )}
     </SafeAreaView>

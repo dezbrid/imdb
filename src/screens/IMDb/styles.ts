@@ -10,4 +10,7 @@ export default StyleSheet.create({
   separator: {
     height: 15,
   },
+  text: {
+    color: 'black',
+  },
 });

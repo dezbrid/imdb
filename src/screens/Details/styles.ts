@@ -6,13 +6,15 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
   },
   subContainer: {
-    marginTop: 10,
+    marginVertical: 10,
     flex: 1,
   },
   string: {
     fontWeight: 'bold',
+    color: 'black',
   },
   subString: {
     fontWeight: 'normal',
+    color: 'black',
   },
 });

@@ -9,6 +9,7 @@ import {imdbTitleAsync, clearListImdb} from '@redux/imdbSlice';
 import iconSerch from './assets/ic_search.png';
 import clearIcon from './assets/ic_close.png';
 import styles from './styles';
+import {mediumGray} from '@constants/colors';
 
 function BarSearch() {
   const [search, setSearch] = useState<string>('');
@@ -48,6 +49,7 @@ function BarSearch() {
           autoCorrect={false}
           style={styles.inputStyle}
           placeholder={'Buscar'}
+          placeholderTextColor={mediumGray}
           onChangeText={handleChangeText}
           value={search}
           autoCapitalize="none"
