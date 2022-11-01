@@ -8,8 +8,9 @@ declare global {
   }
 }
 
-// If you want to use a physical device and connect it to reactotron
+// If  android not coonect
 // execute first `adb reverse tcp:9090 tcp:9090`
+// second `adb reverse --list`
 if (__DEV__) {
   Reactotron.configure({name: 'imdb'})
     .use(trackGlobalErrors({}))

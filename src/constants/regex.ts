@@ -1,2 +1,2 @@
-export const alphanumericRegexWithOutSpaces =
-  /^[a-záéíóúäëïºöüA-ZÁÉÍÓÚÄËÏÖÜ0-9()/\\]*$/g;
+export const alphanumericRegex =
+  /^[a-záéíóúäëïºöüñA-ZÁÉÍÓÚÄËÏÖÜÑ0-9()/ \\.,]*$/g;

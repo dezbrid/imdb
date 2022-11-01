@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {View, Image, TextInput, TouchableOpacity, Text} from 'react-native';
 import {Nullable} from '@interfaces/generic';
-import {alphanumericRegexWithOutSpaces} from '@constants/regex';
+import {alphanumericRegex} from '@constants/regex';
 import {useAppDispatch} from '@hooks/redux';
 import useDebounce from '@hooks/useDebounce';
-import {imdbTitleAsync} from '@redux/imdbSlice';
+import {imdbTitleAsync, clearListImdb} from '@redux/imdbSlice';
 
 import iconSerch from './assets/ic_search.png';
 import clearIcon from './assets/ic_close.png';
@@ -15,10 +15,13 @@ function BarSearch() {
   const [hasError, setHasError] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   let inputRef: Nullable<TextInput> = null;
-  const debouncesSearch = useDebounce(search, 800);
+  const debouncesSearch = useDebounce(search, 500);
   useEffect(() => {
     if (debouncesSearch.length >= 3 && !hasError) {
-      dispatch(imdbTitleAsync(debouncesSearch));
+      dispatch(imdbTitleAsync(debouncesSearch.trim()));
+    }
+    if (debouncesSearch.length === 0) {
+      dispatch(clearListImdb());
     }
   }, [hasError, debouncesSearch, dispatch]);
 
@@ -27,7 +30,7 @@ function BarSearch() {
     setSearch('');
   };
   const handleChangeText = (text: string) => {
-    const error = text.match(alphanumericRegexWithOutSpaces);
+    const error = text.match(alphanumericRegex);
     setHasError(error === null);
     setSearch(text);
   };

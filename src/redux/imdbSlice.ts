@@ -46,8 +46,8 @@ export const imdbSlice = createSlice({
   name: 'imdb',
   initialState,
   reducers: {
-    getOriginalList: state => {
-      state.listimdb = state.listimdb;
+    clearListImdb: state => {
+      state.listimdb = [];
     },
   },
   extraReducers: builder => {
@@ -74,8 +74,10 @@ export const imdbSlice = createSlice({
       });
   },
 });
-export const {getOriginalList} = imdbSlice.actions;
+export const {clearListImdb} = imdbSlice.actions;
 export const listImdb = (state: RootState) => state.imdb.listimdb;
+export const loadingList = (state: RootState) => state.imdb.loadingList;
+export const loadingDetail = (state: RootState) => state.imdb.loadingDetail;
 export const detailImdb = (state: RootState) => state.imdb.detailImdb;
 
 export default imdbSlice.reducer;
