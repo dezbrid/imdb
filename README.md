@@ -23,10 +23,12 @@ npx pod-install
 ```
 
 3. In the root folder make a file `.env` and inside write
----
+
+```env
 IMDB_API_KEY='YOUR_API_KEY_IMDB' 
 IMDB_BASE_URL=https://imdb-api.com/
----
+
+```
 
 # start proyect 
  
