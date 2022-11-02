@@ -25,6 +25,7 @@ export default StyleSheet.create({
   },
   inputStyle: {
     flex: 1,
+    color: 'black',
   },
   clearIcon: {
     width: CLEAR_ICON_SIZE,
