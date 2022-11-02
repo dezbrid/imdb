@@ -4,7 +4,7 @@
 
 -Follow the [official guide](https://reactnative.dev/docs/environment-setup) to properly setup your environment.
 
--Register in [https://imdb-api.com/] (https://imdb-api.com/Identity/Account/Register)
+-Register in [imdb-api] (https://imdb-api.com/Identity/Account/Register)
 
 -In your profile  get your api key  [here](https://imdb-api.com/Identity/Account/Manage)
 
