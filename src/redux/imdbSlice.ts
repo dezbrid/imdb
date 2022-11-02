@@ -1,5 +1,5 @@
 import Config from 'react-native-config';
-import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
+import {createSlice, createAsyncThunk, PayloadAction} from '@reduxjs/toolkit';
 import {RootState} from '@redux/store';
 import {
   ImdbObject,
@@ -12,6 +12,7 @@ export interface ImdbState {
   loadingList: boolean;
   detailImdb: Nullable<ResponseImdbTitleDetail>;
   loadingDetail: boolean;
+  currentSearch: string;
 }
 
 export const imdbTitleAsync = createAsyncThunk(
@@ -41,6 +42,7 @@ const initialState: ImdbState = {
   loadingList: false,
   detailImdb: null,
   loadingDetail: false,
+  currentSearch: '',
 };
 export const imdbSlice = createSlice({
   name: 'imdb',
@@ -48,6 +50,9 @@ export const imdbSlice = createSlice({
   reducers: {
     clearListImdb: state => {
       state.listimdb = [];
+    },
+    setCurrentSearch: (state, action: PayloadAction<string>) => {
+      state.currentSearch = action.payload;
     },
   },
   extraReducers: builder => {
@@ -57,7 +62,10 @@ export const imdbSlice = createSlice({
       })
       .addCase(imdbTitleAsync.fulfilled, (state, action) => {
         state.loadingList = false;
-        state.listimdb = action.payload.results;
+        state.listimdb =
+          state.listimdb.length === 0
+            ? action.payload.results
+            : [...state.listimdb, ...action.payload.results];
       })
       .addCase(imdbTitleAsync.rejected, state => {
         state.loadingList = false;
@@ -74,8 +82,9 @@ export const imdbSlice = createSlice({
       });
   },
 });
-export const {clearListImdb} = imdbSlice.actions;
+export const {clearListImdb, setCurrentSearch} = imdbSlice.actions;
 export const listImdb = (state: RootState) => state.imdb.listimdb;
+export const currentSearch = (state: RootState) => state.imdb.currentSearch;
 export const loadingList = (state: RootState) => state.imdb.loadingList;
 export const loadingDetail = (state: RootState) => state.imdb.loadingDetail;
 export const detailImdb = (state: RootState) => state.imdb.detailImdb;

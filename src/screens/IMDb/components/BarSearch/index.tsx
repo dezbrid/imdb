@@ -4,7 +4,11 @@ import {Nullable} from '@interfaces/generic';
 import {alphanumericRegex} from '@constants/regex';
 import {useAppDispatch} from '@hooks/redux';
 import useDebounce from '@hooks/useDebounce';
-import {imdbTitleAsync, clearListImdb} from '@redux/imdbSlice';
+import {
+  imdbTitleAsync,
+  clearListImdb,
+  setCurrentSearch,
+} from '@redux/imdbSlice';
 
 import iconSerch from './assets/ic_search.png';
 import clearIcon from './assets/ic_close.png';
@@ -18,8 +22,9 @@ function BarSearch() {
   let inputRef: Nullable<TextInput> = null;
   const debouncesSearch = useDebounce(search, 500);
   useEffect(() => {
-    if (debouncesSearch.length >= 3 && !hasError) {
+    if (debouncesSearch.replace(/\s/g, '').length >= 3 && !hasError) {
       dispatch(imdbTitleAsync(debouncesSearch.trim()));
+      dispatch(setCurrentSearch(debouncesSearch.trim()));
     }
     if (debouncesSearch.length === 0) {
       dispatch(clearListImdb());

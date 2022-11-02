@@ -13,4 +13,7 @@ export default StyleSheet.create({
   text: {
     color: 'black',
   },
+  footer: {
+    margin: 50,
+  },
 });
